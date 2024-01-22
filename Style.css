@@ -1,0 +1,31 @@
+body {
+        background-color: black;
+      }
+
+      .border-left {
+        border-left: 2px solid yellow;
+        padding: 20px;
+      }
+
+      .border-left a {
+        display: block;
+        padding: 10px 0;
+        color: white;
+        text-decoration: none;
+        border: 2px solid transparent;
+        font-size: 18px;
+      }
+
+      .border-left a:hover {
+        border-color: yellow;
+      }
+
+      @media screen and (min-width: 768px) {
+        .border-left {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          overflow-y: auto;
+        }
+      }
