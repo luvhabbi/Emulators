@@ -2,37 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Site</title>
     <style>
         body {
+            margin: 0;
             font-family: Arial, sans-serif;
+            background-color: #000; /* Black page background color */
+            color: #fff; /* White text color */
+        }
+
+        .navbar {
+            background-color: #fff; /* White navbar background color */
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            transition: 0.5s;
+            z-index: 1000; /* Ensure navbar is on top of other elements */
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #001F3F; /* Dark blue text color */
             text-align: center;
-            padding: 50px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #000; /* Black text color on hover */
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .navbar-left {
+            animation: moveFromLeft 1s ease-in-out;
+        }
+
+        .navbar-right {
+            animation: moveFromRight 1s ease-in-out;
+        }
+
+        @keyframes moveFromLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes moveFromRight {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        /* Additional styles for the password protection form */
+        #password-form {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        #password {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #submit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
         }
     </style>
-</head>
-<body>
-    <h2>Password Protected Site</h2>
-
-    <form id="passwordForm">
-        <label for="password">Enter Password:</label>
-        <input type="password" id="password" required>
-        <button type="button" onclick="checkPassword()">Submit</button>
-    </form>
-
     <script>
-        function checkPassword() {
-            var enteredPassword = document.getElementById('password').value;
-            var correctPassword = '123';
+        function downloadFile() {
+            // Replace "KaiserRookie" with the correct password
+            var enteredPassword = document.getElementById("password").value;
 
-            if (enteredPassword === correctPassword) {
-                window.location.href = 'Offline Emulator.html';
+            if (enteredPassword === "KaiserRookie") {
+                // Replace "https://example.com" with the URL of the website you want to redirect to
+                window.location.href = "https://example.com";
             } else {
-                alert('Incorrect password. Please try again.');
+                alert("Incorrect password. Please try again.");
             }
         }
     </script>
+</head>
+<body>
+
+    <div class="navbar navbar-left">
+        <a href="#" class="active">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div id="password-form" class="navbar-right">
+        <h2>Password Protected Page</h2>
+        <form onsubmit="downloadFile(); return false;">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+            <button type="submit" id="submit-btn">Submit</button>
+        </form>
+    </div>
+
 </body>
 </html>
