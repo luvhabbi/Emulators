@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Page</title>
+    <title>Password Protected Site</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <h2>Password Protected Page</h2>
+    <h2>Password Protected Site</h2>
 
     <form id="passwordForm">
         <label for="password">Enter Password:</label>
@@ -25,10 +25,10 @@
     <script>
         function checkPassword() {
             var enteredPassword = document.getElementById('password').value;
-            var correctPassword = 'your_password'; // Change this to your desired password
+            var correctPassword = '123'; // Change this to your desired password
 
             if (enteredPassword === correctPassword) {
-                window.location.href = 'https://example.com'; // Change this to your desired redirection URL
+                window.location.href = 'Offline Emulator.html';
             } else {
                 alert('Incorrect password. Please try again.');
             }
