@@ -1,76 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000; /* Black page background color */
-    }
-
-    .navbar {
-      background-color: #fff; /* White navbar background color */
-      overflow: hidden;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      transition: 0.5s;
-    }
-
-    .navbar a {
-      float: left;
-      display: block;
-      color: #2196F3; /* Dark blue text color */
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-    }
-
-    .navbar a:hover {
-      background-color: #ddd;
-      color: #000; /* Black text color on hover */
-    }
-
-    .navbar a.active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .navbar-left {
-      animation: moveFromLeft 1s ease-in-out;
-    }
-
-    .navbar-right {
-      animation: moveFromRight 1s ease-in-out;
-    }
-
-    @keyframes moveFromLeft {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes moveFromRight {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+    </style>
 </head>
 <body>
+    <h2>Password Protected Page</h2>
 
-<div class="navbar navbar-left">
-<a href="Offline Emulator.html" download="Offline Emulator.html">Download Offline Emulator</a>
+    <form id="passwordForm">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" required>
+        <button type="button" onclick="checkPassword()">Submit</button>
+    </form>
 
-</div>
+    <script>
+        function checkPassword() {
+            var enteredPassword = document.getElementById('password').value;
+            var correctPassword = 'your_password'; // Change this to your desired password
 
+            if (enteredPassword === correctPassword) {
+                window.location.href = 'https://example.com'; // Change this to your desired redirection URL
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+    </script>
 </body>
 </html>
